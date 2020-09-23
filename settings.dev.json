@@ -1,11 +1,11 @@
 {
   "public": {
-    "startup_json":"http://dxugxjm290185.cloudfront.net/hbn/hbn_manifest.json",
+    "startup_json": "https://henrylab.s3-us-west-1.amazonaws.com/start_up_json.json",
     "load_if_empty": true,
     "use_custom": true,
     "needs_consent": true,
     "modules": [
-       {
+      {
         "name": "T1w",
         "entry_type": "T1w",
         "fields": [
@@ -30,15 +30,71 @@
             "name": "Notes"
           }
         ],
-        "metric_names": ["Age","EHQ_Total","Sex","average_vote","num_votes"],
+        "metric_names": [
+          "Age",
+          "EHQ_Total",
+          "Sex",
+          "average_vote",
+          "num_votes"
+        ],
         "num_overlays": 3,
         "graph_type": "histogram",
-        "staticURL": "https://dxugxjm290185.cloudfront.net/hbn/",
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
         "usePeerJS": false,
         "logPainter": false,
         "logContours": true,
         "logPoints": true,
-        "qc_options": {"pass": 1, "fail": 1, "needs_edits": 0, "edited": 0, "assignTo": 0, "notes": 1, "confidence": 0}
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 0
+        }
+      },
+      {
+        "name": "SPI2",
+        "entry_type": "SPI2",
+        "fields": [
+          {
+            "function_name": "get_qc_viewer",
+            "id": "name",
+            "name": "Image File"
+          },
+          {
+            "function_name": "get_qc_ave_field",
+            "id": "average_vote",
+            "name": "QC vote"
+          },
+          {
+            "function_name": null,
+            "id": "num_votes",
+            "name": "# votes"
+          },
+          {
+            "function_name": null,
+            "id": "quality_check.notes_QC",
+            "name": "Notes"
+          }
+        ],
+        "graph_type": "histogram",
+        "metric_names": ["average_vote", "num_votes"],
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
+        "usePeerJS": false,
+        "logPainter": false,
+        "logContours": false,
+        "logPoints": true,
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 1
+        }
       },
       {
         "name": "T2w",
@@ -66,13 +122,21 @@
           }
         ],
         "graph_type": "histogram",
-        "metric_names": ["average_vote","num_votes"],
-        "staticURL": "https://dxugxjm290185.cloudfront.net/hbn/",
+        "metric_names": ["average_vote", "num_votes"],
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
         "usePeerJS": false,
         "logPainter": false,
         "logContours": false,
         "logPoints": true,
-        "qc_options": {"pass": 1, "fail": 1, "needs_edits": 0, "edited": 0, "assignTo": 0, "notes": 1, "confidence": 1}
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 1
+        }
       },
       {
         "name": "FLAIR",
@@ -100,12 +164,20 @@
           }
         ],
         "graph_type": null,
-        "staticURL": "https://dxugxjm290185.cloudfront.net/hbn/",
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
         "usePeerJS": false,
         "logPainter": false,
         "logContours": false,
         "logPoints": true,
-        "qc_options": {"pass": 1, "fail": 1, "needs_edits": 0, "edited": 0, "assignTo": 0, "notes": 1, "confidence": 1}
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 1
+        }
       },
       {
         "name": "MT-off_PD",
@@ -133,12 +205,20 @@
           }
         ],
         "graph_type": null,
-        "staticURL": "https://dxugxjm290185.cloudfront.net/hbn/",
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
         "usePeerJS": false,
         "logPainter": false,
         "logContours": false,
         "logPoints": true,
-        "qc_options": {"pass": 1, "fail": 1, "needs_edits": 0, "edited": 0, "assignTo": 0, "notes": 1, "confidence": 1}
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 1
+        }
       },
       {
         "name": "MT-on_PD",
@@ -166,12 +246,20 @@
           }
         ],
         "graph_type": null,
-        "staticURL": "https://dxugxjm290185.cloudfront.net/hbn/",
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
         "usePeerJS": false,
         "logPainter": false,
         "logContours": false,
         "logPoints": true,
-        "qc_options": {"pass": 1, "fail": 1, "needs_edits": 0, "edited": 0, "assignTo": 0, "notes": 1, "confidence": 1}
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 1
+        }
       },
       {
         "name": "DWI",
@@ -199,13 +287,21 @@
           }
         ],
         "graph_type": null,
-        "staticURL": "https://dxugxjm290185.cloudfront.net/hbn/",
+        "staticURL": "https://henrylab.s3-us-west-1.amazonaws.com/",
         "usePeerJS": false,
         "logPainter": false,
         "logContours": false,
         "logPoints": true,
-        "qc_options": {"pass": 1, "fail": 1, "needs_edits": 0, "edited": 0, "assignTo": 0, "notes": 1, "confidence": 1}
+        "qc_options": {
+          "pass": 1,
+          "fail": 1,
+          "needs_edits": 0,
+          "edited": 0,
+          "assignTo": 0,
+          "notes": 1,
+          "confidence": 1
+        }
       }
-  ]
+    ]
   }
 }

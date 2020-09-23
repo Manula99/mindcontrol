@@ -1,34 +1,37 @@
 {
   "public": {
-    "startup_json":"https://s3-us-west-2.amazonaws.com/akeshavan-mindcontrol/mindcontrol_freesurfer/mindcontrol_startup_data.json",
+    "startup_json": "https://henrylab.s3-us-west-1.amazonaws.com/start_up_json.json",
     "load_if_empty": true,
     "modules": [
-    {"name": "Exams",
-      "entry_type": "demographic",
-    "fields": [
-      {"function_name": "get_filter_field",
-        "id": "msid",
-        "name": "msid"
+      {
+        "name": "Exams",
+        "entry_type": "demographic",
+        "fields": [
+          { "function_name": "get_filter_field", "id": "msid", "name": "msid" },
+          {
+            "function_name": "get_filter_field",
+            "id": "subject_id",
+            "name": "Exam ID"
+          },
+          {
+            "function_name": "get_filter_field",
+            "id": "Study Tag",
+            "name": "Study Tag"
+          },
+          {
+            "function_name": "get_filter_field",
+            "id": "DCM_InstitutionName",
+            "name": "Site"
+          },
+          {
+            "function_name": "get_filter_field",
+            "id": "metrics.DCM_InstitutionName",
+            "name": "Date"
+          }
+        ],
+        "graph_type": "datehist",
+        "showgraph": true
       },
-      {"function_name": "get_filter_field",
-        "id": "subject_id",
-        "name": "Exam ID"
-      },
-      {"function_name": "get_filter_field",
-        "id": "Study Tag",
-        "name": "Study Tag"
-      },
-      {"function_name": "get_filter_field",
-        "id": "DCM_InstitutionName",
-        "name": "Site"
-      },
-      {"function_name": "get_filter_field",
-        "id": "metrics.DCM_InstitutionName",
-        "name": "Date"
-      }
-    ],
-    "graph_type":"datehist",
-    "showgraph": true},
       {
         "name": "Freesurfer",
         "entry_type": "freesurfer",
@@ -66,11 +69,7 @@
         ],
         "graph_type": "histogram",
         "colormaps": {
-          "0":{"name": "Grayscale",
-              "alpha": 1,
-              "min": 0,
-              "max": 255
-          },
+          "0": { "name": "Grayscale", "alpha": 1, "min": 0, "max": 255 },
           "1": {
             "name": "custom.Freesurfer",
             "alpha": 0.5
@@ -79,6 +78,6 @@
         "staticURL": "",
         "usePeerJS": true
       }
-  ]
+    ]
   }
 }

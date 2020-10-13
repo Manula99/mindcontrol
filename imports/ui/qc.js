@@ -77,6 +77,10 @@ var addPapaya = function (data, entry_type, template_instance, callback) {
     console.log('url is', url);
     if (i >= nOverlays) {
       loadableImages.push(url);
+      console.log(
+        'added loadable image url. Loadable images are: ',
+        loadableImages
+      );
     } else {
       params['images'].push(url);
       console.log('params of images is', params['images']);
@@ -292,6 +296,7 @@ Template.view_images.onCreated(function () {
   this.touchscreen = new ReactiveVar(false);
   this.loadableImages = new ReactiveVar([]);
   this.painters = new ReactiveVar([]);
+  this.protocolImages = new ReactiveVar([]);
   this.connections = {};
   Meteor.subscribe('presences');
   var qc = Session.get('currentQC');
@@ -362,6 +367,39 @@ Template.view_images.helpers({
       }
     }
     return true;
+  },
+
+  protocols: function () {
+    return [
+      {
+        protocol_name: 'Protocol 1',
+        images: [
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+        ],
+      },
+      {
+        protocol_name: 'Protocol 2',
+        images: [
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+        ],
+      },
+      {
+        protocol_name: 'Protocol 3',
+        images: [
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+          'https://img.medscapestatic.com/pi/meds/ckb/48/15548tn.jpg',
+        ],
+      },
+    ];
+  },
+
+  protocol_images: function () {
+    return Template.instance().protocolImages.get();
   },
 
   qc_options: function () {
@@ -871,6 +909,16 @@ Template.view_images.events({
     }
     template.contours.set(points);
     papayaContainers[0].viewer.drawViewer(true); //fill_all(template)
+  },
+  'click .select-protocol': function (event, template) {
+    // update['loggedPoints'] = template.loggedPoints.get();
+    const images = [];
+    for (i of this.images) {
+      images.push({ url: i });
+    }
+    Template.instance().protocolImages.set(images);
+    console.log(this.images);
+    console.log(Template.instance().protocolImages);
   },
   'click #menu-toggle': function (e, template) {
     e.preventDefault();
